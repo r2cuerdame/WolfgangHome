@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOLFGANG - Premium Collectible Figures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Header / Navbar ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 6px;
+      color: #fff;
+    }
+
+    nav { display: flex; align-items: center; gap: 36px; }
+
+    nav a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #fff; }
+
+    .header-icons { display: flex; align-items: center; gap: 20px; }
+
+    .header-icons .icon-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      font-size: 16px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-icons .icon-btn:hover { color: #fff; }
+
+    /* Icon SVGs inline */
+    .icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ── Mobile Menu Toggle ── */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ── Main Content ── */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 110px 40px 60px;
+    }
+
+    .page-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ── Product Grid ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #222;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image .jersey-number {
+      font-size: 180px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+    }
+
+    .product-image .character-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+
+    .product-image .character-kr {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-image .scale-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.5);
+      background: rgba(0,0,0,0.3);
+      padding: 4px 10px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+
+    /* Sold out badge */
+    .sold-out-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0,0,0,0.6);
+      color: #ff4757;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 5px 12px;
+      border-radius: 2px;
+      border: 1px solid rgba(255,71,87,0.3);
+      z-index: 2;
+    }
+
+    /* Gradients */
+    .grad-sakuragi { background: linear-gradient(145deg, #e74c3c 0%, #c0392b 50%, #7f1d1d 100%); }
+    .grad-rukawa  { background: linear-gradient(145deg, #3b5998 0%, #2c3e50 50%, #1a252f 100%); }
+    .grad-mitsui  { background: linear-gradient(145deg, #9b59b6 0%, #8e44ad 50%, #5b2c6f 100%); }
+    .grad-miyagi  { background: linear-gradient(145deg, #2ecc71 0%, #27ae60 50%, #1a7a43 100%); }
+    .grad-akagi   { background: linear-gradient(145deg, #f1c40f 0%, #d4a017 50%, #8b6914 100%); }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .product-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .btn-detail {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.8);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-detail:hover {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #fff;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 80px;
+      padding: 50px 40px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-brand .footer-logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 5px;
+      margin-bottom: 16px;
+    }
+
+    .footer-info {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      line-height: 2;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      transition: all 0.3s;
+      font-size: 14px;
+    }
+
+    .footer-social a:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .footer-social a svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .footer-links {
+      display: flex;
+      gap: 60px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 1px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .product-image .jersey-number { font-size: 140px; }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 20px; }
+      nav { display: none; }
+      .menu-toggle { display: block; }
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; left: 0; right: 0;
+        background: rgba(18,18,18,0.98);
+        padding: 20px;
+        gap: 16px;
+      }
+      main { padding: 90px 20px 40px; }
+      .product-grid { grid-template-columns: 1fr; gap: 20px; }
+      .product-image .jersey-number { font-size: 160px; }
+      .product-image .character-name { font-size: 24px; }
+      .footer-inner { flex-direction: column; }
+      .footer-links { gap: 30px; }
+    }
+
+    @media (max-width: 480px) {
+      .logo { font-size: 18px; letter-spacing: 4px; }
+      .product-image .jersey-number { font-size: 120px; }
+      .product-image .character-name { font-size: 20px; letter-spacing: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">WOLFGANG</a>
+      <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">☰</button>
+      <nav>
+        <a href="#">HOME</a>
+        <a href="#">SHOP</a>
+        <a href="#">WOLFGANG</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT</a>
+      </nav>
+      <div class="header-icons">
+        <!-- Language -->
+        <button class="icon-btn" aria-label="Language">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </button>
+        <!-- Login -->
+        <button class="icon-btn" aria-label="Login">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </button>
+        <!-- Cart -->
+        <button class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="page-title">ALL PRODUCTS</div>
+
+    <div class="product-grid">
+      <!-- Sakuragi -->
+      <div class="product-card">
+        <div class="product-image grad-sakuragi">
+          <span class="scale-badge">1:4 SCALE</span>
+          <span class="sold-out-badge">품절</span>
+          <span class="jersey-number">#10</span>
+          <span class="character-name">SAKURAGI</span>
+          <span class="character-kr">강백호</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">1:4 WOLFGANG Slam Dunk SAKURAGI</div>
+          <div class="product-price">₩3,490,000</div>
+          <button class="btn-detail">DETAIL</button>
+        </div>
+      </div>
+
+      <!-- Rukawa -->
+      <div class="product-card">
+        <div class="product-image grad-rukawa">
+          <span class="scale-badge">1:4 SCALE</span>
+          <span class="sold-out-badge">품절</span>
+          <span class="jersey-number">#11</span>
+          <span class="character-name">RUKAWA</span>
+          <span class="character-kr">서태웅</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">1:4 WOLFGANG Slam Dunk RUKAWA</div>
+          <div class="product-price">₩3,490,000</div>
+          <button class="btn-detail">DETAIL</button>
+        </div>
+      </div>
+
+      <!-- Mitsui -->
+      <div class="product-card">
+        <div class="product-image grad-mitsui">
+          <span class="scale-badge">1:4 SCALE</span>
+          <span class="sold-out-badge">품절</span>
+          <span class="jersey-number">#14</span>
+          <span class="character-name">MITSUI</span>
+          <span class="character-kr">정대만</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">1:4 WOLFGANG Slam Dunk MITSUI</div>
+          <div class="product-price">₩3,690,000</div>
+          <button class="btn-detail">DETAIL</button>
+        </div>
+      </div>
+
+      <!-- Miyagi -->
+      <div class="product-card">
+        <div class="product-image grad-miyagi">
+          <span class="scale-badge">1:4 SCALE</span>
+          <span class="sold-out-badge">품절</span>
+          <span class="jersey-number">#7</span>
+          <span class="character-name">MIYAGI</span>
+          <span class="character-kr">송태섭</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">1:4 WOLFGANG Slam Dunk MIYAGI</div>
+          <div class="product-price">₩3,290,000</div>
+          <button class="btn-detail">DETAIL</button>
+        </div>
+      </div>
+
+      <!-- Akagi -->
+      <div class="product-card">
+        <div class="product-image grad-akagi">
+          <span class="scale-badge">1:4 SCALE</span>
+          <span class="sold-out-badge">품절</span>
+          <span class="jersey-number">#4</span>
+          <span class="character-name">AKAGI</span>
+          <span class="character-kr">채치수</span>
+        </div>
+        <div class="product-info">
+          <div class="product-name">1:4 WOLFGANG Slam Dunk AKAGI</div>
+          <div class="product-price">₩3,890,000</div>
+          <button class="btn-detail">DETAIL</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">WOLFGANG</div>
+        <div class="footer-info">
+          상호: WOLFGANG<br>
+          대표: WOLFGANG Inc.<br>
+          이메일: contact@wolfgang.co.kr<br>
+          전화: 02-1234-5678<br>
+          사업자등록번호: 000-00-00000
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 WOLFGANG. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
