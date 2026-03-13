@@ -141,12 +141,29 @@
     .product-image .jersey-number {
       font-size: 180px;
       font-weight: 900;
-      color: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.08);
       line-height: 1;
       position: absolute;
-      top: 50%;
+      top: 10%;
+      right: -10px;
+      z-index: 1;
+    }
+
+    .product-image .char-img {
+      position: absolute;
+      bottom: 0;
       left: 50%;
-      transform: translate(-50%, -55%);
+      transform: translateX(-50%);
+      max-height: 90%;
+      max-width: 85%;
+      object-fit: contain;
+      z-index: 2;
+      filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .product-card:hover .char-img {
+      transform: translateX(-50%) scale(1.05);
     }
 
     .product-image .character-name {
@@ -155,20 +172,33 @@
       letter-spacing: 8px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.85);
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
+
+    .product-card:hover .character-name { opacity: 1; }
 
     .product-image .character-kr {
       font-size: 14px;
       font-weight: 400;
       letter-spacing: 4px;
       color: rgba(255,255,255,0.5);
-      margin-top: 8px;
-      position: relative;
-      z-index: 2;
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.3s;
     }
+
+    .product-card:hover .character-kr { opacity: 1; }
 
     .product-image .scale-badge {
       position: absolute;
@@ -419,6 +449,7 @@
           <span class="scale-badge">1:4 SCALE</span>
           <span class="sold-out-badge">품절</span>
           <span class="jersey-number">#10</span>
+          <img class="char-img" src="images/sakuragi.png" alt="Sakuragi Hanamichi">
           <span class="character-name">SAKURAGI</span>
           <span class="character-kr">강백호</span>
         </div>
@@ -435,6 +466,7 @@
           <span class="scale-badge">1:4 SCALE</span>
           <span class="sold-out-badge">품절</span>
           <span class="jersey-number">#11</span>
+          <img class="char-img" src="images/rukawa.png" alt="Rukawa Kaede">
           <span class="character-name">RUKAWA</span>
           <span class="character-kr">서태웅</span>
         </div>
@@ -451,6 +483,7 @@
           <span class="scale-badge">1:4 SCALE</span>
           <span class="sold-out-badge">품절</span>
           <span class="jersey-number">#14</span>
+          <img class="char-img" src="images/mitsui.png" alt="Mitsui Hisashi">
           <span class="character-name">MITSUI</span>
           <span class="character-kr">정대만</span>
         </div>
@@ -467,6 +500,7 @@
           <span class="scale-badge">1:4 SCALE</span>
           <span class="sold-out-badge">품절</span>
           <span class="jersey-number">#7</span>
+          <img class="char-img" src="images/miyagi.png" alt="Miyagi Ryota">
           <span class="character-name">MIYAGI</span>
           <span class="character-kr">송태섭</span>
         </div>
@@ -483,6 +517,7 @@
           <span class="scale-badge">1:4 SCALE</span>
           <span class="sold-out-badge">품절</span>
           <span class="jersey-number">#4</span>
+          <img class="char-img" src="images/akagi.png" alt="Akagi Takenori">
           <span class="character-name">AKAGI</span>
           <span class="character-kr">채치수</span>
         </div>
