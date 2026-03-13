@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTACT — WOLFGANG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">WOLF<span>GANG</span></a>
+      <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html" class="active">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <h1>CONTACT</h1>
+    <p>궁금한 점이 있으시면 언제든 연락해 주세요</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-form">
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="성함을 입력해 주세요">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="이메일 주소를 입력해 주세요">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="문의 제목">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="문의 내용을 입력해 주세요"></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+
+      <div class="contact-item">
+        <h3>Address</h3>
+        <p>서울특별시 강남구 테헤란로 123<br>WOLFGANG Building 5F</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Phone</h3>
+        <p>+82 2-1234-5678</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p>info@wolfgang-figures.com</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Business Hours</h3>
+        <p>월–금: 10:00 – 18:00<br>토·일·공휴일 휴무</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Social</h3>
+        <p>Instagram: @wolfgang.figures<br>Twitter: @wolfgangfigures</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 WOLFGANG. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

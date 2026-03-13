@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAKURAGI — WOLFGANG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">WOLF<span>GANG</span></a>
+      <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="shop.html" class="active">SHOP</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="product-detail">
+    <div class="product-detail-img">
+      <img src="images/sakuragi.jpg" alt="Sakuragi Hanamichi 1:4 Figure">
+    </div>
+    <div class="product-detail-info">
+      <h1>1:4 WOLFGANG Slam Dunk<br>SAKURAGI HANAMICHI</h1>
+      <p class="product-price">₩3,490,000</p>
+      <p class="product-status">품절 / SOLD OUT</p>
+
+      <div class="product-description">
+        <p><strong>강백호 (Sakuragi Hanamichi) #10</strong></p>
+        <p>쇼호쿠 고등학교의 천재 리바운더. 농구 초보에서 팀의 핵심으로 성장한 붉은 머리의 주인공. 그의 끝없는 열정과 타고난 신체 능력은 코트 위에서 전설이 되었습니다.</p>
+        <p>WOLFGANG의 1:4 스케일 피규어는 사쿠라기의 역동적인 리바운드 순간을 포착합니다. 박물관 수준의 디테일과 핸드페인팅으로 완성된 한정판 컬렉터블입니다.</p>
+      </div>
+
+      <table class="spec-table">
+        <tr><th>Scale</th><td>1:4</td></tr>
+        <tr><th>Height</th><td>약 48cm</td></tr>
+        <tr><th>Weight</th><td>약 4.2kg</td></tr>
+        <tr><th>Material</th><td>High-quality PVC & Resin</td></tr>
+        <tr><th>Edition</th><td>Limited 300pcs Worldwide</td></tr>
+        <tr><th>Features</th><td>Detailed sculpting, Hand-painted, LED base</td></tr>
+      </table>
+
+      <button class="btn btn-disabled" disabled>SOLD OUT</button>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <h2 class="section-title">Related Products</h2>
+    <div class="related-grid">
+      <a href="product-rukawa.html" class="related-card">
+        <div class="related-card-img"><img src="images/rukawa.jpg" alt="Rukawa"></div>
+        <div class="related-card-body"><h4>RUKAWA</h4><p class="product-price">₩3,490,000</p></div>
+      </a>
+      <a href="product-mitsui.html" class="related-card">
+        <div class="related-card-img"><img src="images/mitsui.webp" alt="Mitsui"></div>
+        <div class="related-card-body"><h4>MITSUI</h4><p class="product-price">₩3,690,000</p></div>
+      </a>
+      <a href="product-miyagi.html" class="related-card">
+        <div class="related-card-img"><img src="images/miyagi.webp" alt="Miyagi"></div>
+        <div class="related-card-body"><h4>MIYAGI</h4><p class="product-price">₩3,290,000</p></div>
+      </a>
+      <a href="product-akagi.html" class="related-card">
+        <div class="related-card-img"><img src="images/akagi.jpg" alt="Akagi"></div>
+        <div class="related-card-body"><h4>AKAGI</h4><p class="product-price">₩3,890,000</p></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 WOLFGANG. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

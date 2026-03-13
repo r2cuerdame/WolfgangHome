@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MITSUI — WOLFGANG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">WOLF<span>GANG</span></a>
+      <button class="mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="shop.html" class="active">SHOP</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="product-detail">
+    <div class="product-detail-img">
+      <img src="images/mitsui.webp" alt="Mitsui Hisashi 1:4 Figure">
+    </div>
+    <div class="product-detail-info">
+      <h1>1:4 WOLFGANG Slam Dunk<br>MITSUI HISASHI</h1>
+      <p class="product-price">₩3,690,000</p>
+      <p class="product-status">품절 / SOLD OUT</p>
+
+      <div class="product-description">
+        <p><strong>정대만 (Mitsui Hisashi) #14</strong></p>
+        <p>"포기를 모르는 남자." 중학교 MVP 출신의 3점 슈터. 감독에게 돌아와 팀의 외곽 공격을 책임진다. 안서 감독 앞에서 눈물을 흘리며 "농구가 하고 싶습니다"라고 말한 장면은 슬램덩크 역사상 가장 감동적인 순간 중 하나입니다.</p>
+        <p>WOLFGANG의 1:4 스케일 피규어는 미츠이의 결정적인 3점슛 릴리즈 순간을 포착합니다. 땀에 젖은 유니폼과 결연한 표정이 세밀하게 재현되었습니다.</p>
+      </div>
+
+      <table class="spec-table">
+        <tr><th>Scale</th><td>1:4</td></tr>
+        <tr><th>Height</th><td>약 46cm</td></tr>
+        <tr><th>Weight</th><td>약 3.9kg</td></tr>
+        <tr><th>Material</th><td>High-quality PVC & Resin</td></tr>
+        <tr><th>Edition</th><td>Limited 250pcs Worldwide</td></tr>
+        <tr><th>Features</th><td>Detailed sculpting, Hand-painted, LED base</td></tr>
+      </table>
+
+      <button class="btn btn-disabled" disabled>SOLD OUT</button>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <h2 class="section-title">Related Products</h2>
+    <div class="related-grid">
+      <a href="product-sakuragi.html" class="related-card">
+        <div class="related-card-img"><img src="images/sakuragi.jpg" alt="Sakuragi"></div>
+        <div class="related-card-body"><h4>SAKURAGI</h4><p class="product-price">₩3,490,000</p></div>
+      </a>
+      <a href="product-rukawa.html" class="related-card">
+        <div class="related-card-img"><img src="images/rukawa.jpg" alt="Rukawa"></div>
+        <div class="related-card-body"><h4>RUKAWA</h4><p class="product-price">₩3,490,000</p></div>
+      </a>
+      <a href="product-miyagi.html" class="related-card">
+        <div class="related-card-img"><img src="images/miyagi.webp" alt="Miyagi"></div>
+        <div class="related-card-body"><h4>MIYAGI</h4><p class="product-price">₩3,290,000</p></div>
+      </a>
+      <a href="product-akagi.html" class="related-card">
+        <div class="related-card-img"><img src="images/akagi.jpg" alt="Akagi"></div>
+        <div class="related-card-body"><h4>AKAGI</h4><p class="product-price">₩3,890,000</p></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 WOLFGANG. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
